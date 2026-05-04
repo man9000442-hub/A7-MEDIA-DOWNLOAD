@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A7 Media App | Download</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-purple: #BC00FF;
+            --neon-cyan: #00f3ff;
+            --bg-color: #050505;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-color);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* تأثير الخلفية المتحركة */
+        .bg-glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--neon-purple);
+            filter: blur(150px);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.2;
+            animation: move 10s infinite alternate;
+        }
+
+        @keyframes move {
+            from { transform: translate(-50%, -50%); }
+            to { transform: translate(50%, 50%); }
+        }
+
+        /* حاوية التصميم الزجاجي */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 40px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px var(--neon-purple));
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            background: linear-gradient(to bottom, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            color: #aaa;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        /* زر التحميل النيون */
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--neon-purple);
+            color: white;
+            text-decoration: none;
+            padding: 15px 35px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: 0.3s;
+            box-shadow: 0 0 20px rgba(188, 0, 255, 0.4);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(188, 0, 255, 0.7);
+            background: #d400ff;
+        }
+
+        /* التوقيع السفلي */
+        .footer {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: #555;
+            letter-spacing: 1px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 20px;
+        }
+
+        .developer-name {
+            color: var(--neon-purple);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow"></div>
+    
+    <div class="glass-card">
+        <!-- تأكد إن اسم الصورة icon.png وموجودة في نفس الفولدر -->
+        <img src="icon.png" alt="A7 Media Logo" class="logo">
+        
+        <h1>A7 Media</h1>
+        <p>مشغل الوسائط الأقوى والأخف على الإطلاق. استمتع بتجربة صوت وفيديو لا مثيل لها.</p>
+        
+        <!-- حط اسم ملف الـ APK اللي هتطلعه هنا -->
+        <a href="app-arm64-v8a-release.apk" class="download-btn">
+            <span>تحميل الـ APK</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        </a>
+
+        <div class="footer">
+            Designed and Developed by <br>
+            <span class="developer-name">Abdelrahman Tarek</span>
+        </div>
+    </div>
+</body>
+</html>
