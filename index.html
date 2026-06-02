@@ -3,140 +3,410 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A7 Media App | Download</title>
+    <title>A7 Media | الموقع الرسمي</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --neon-purple: #BC00FF;
-            --neon-cyan: #00f3ff;
+            --neon-accent: #d400ff;
             --bg-color: #050505;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Tajawal', sans-serif;
             background-color: var(--bg-color);
             color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
-        /* تأثير الخلفية المتحركة */
+        /* تأثيرات الخلفية */
         .bg-glow {
-            position: absolute;
-            width: 300px;
-            height: 300px;
+            position: fixed;
+            width: 40vw;
+            height: 40vw;
             background: var(--neon-purple);
             filter: blur(150px);
             border-radius: 50%;
             z-index: -1;
-            opacity: 0.2;
-            animation: move 10s infinite alternate;
+            opacity: 0.15;
+            top: -10%;
+            left: -10%;
+            animation: floatGlow 15s infinite alternate ease-in-out;
+        }
+        .bg-glow-2 {
+            top: auto;
+            bottom: -10%;
+            left: auto;
+            right: -10%;
+            animation-delay: -5s;
         }
 
-        @keyframes move {
-            from { transform: translate(-50%, -50%); }
-            to { transform: translate(50%, 50%); }
+        @keyframes floatGlow {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
         }
 
-        /* حاوية التصميم الزجاجي */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            padding: 40px;
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        /* شريط التنقل (Navbar) */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
         }
 
-        .logo {
-            width: 120px;
-            height: 120px;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 0 10px var(--neon-purple));
-        }
-
-        h1 {
-            font-size: 2.5rem;
+        .nav-logo {
+            font-size: 1.5rem;
             font-weight: 900;
-            margin-bottom: 10px;
-            background: linear-gradient(to bottom, #fff, #888);
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #aaa;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-purple);
+        }
+
+        /* القسم الرئيسي (Hero) */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px 50px;
+        }
+
+        .hero img {
+            width: 140px;
+            height: 140px;
+            margin-bottom: 20px;
+            border-radius: 30px;
+            box-shadow: 0 0 30px rgba(188, 0, 255, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            background: linear-gradient(to left, #fff, #a8a8a8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        p {
+        .hero p {
             color: #aaa;
-            font-size: 1.1rem;
-            margin-bottom: 30px;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 40px;
+            line-height: 1.6;
         }
 
-        /* زر التحميل النيون */
-        .download-btn {
+        /* الأزرار النيون */
+        .btn {
             display: inline-flex;
             align-items: center;
             gap: 10px;
             background: var(--neon-purple);
             color: white;
             text-decoration: none;
-            padding: 15px 35px;
-            border-radius: 15px;
+            padding: 15px 40px;
+            border-radius: 20px;
             font-weight: bold;
             font-size: 1.2rem;
-            transition: 0.3s;
-            box-shadow: 0 0 20px rgba(188, 0, 255, 0.4);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(188, 0, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .download-btn:hover {
+        .btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 0 30px rgba(188, 0, 255, 0.7);
-            background: #d400ff;
+            box-shadow: 0 15px 40px rgba(188, 0, 255, 0.6);
+            background: var(--neon-accent);
         }
 
-        /* التوقيع السفلي */
-        .footer {
-            margin-top: 40px;
+        /* قسم صور التطبيق (Screenshots) */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            font-weight: 900;
+        }
+
+        .screenshots {
+            padding: 80px 5%;
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .mockup {
+            width: 250px;
+            height: 520px;
+            background: var(--glass-bg);
+            border: 2px solid var(--glass-border);
+            border-radius: 35px;
+            padding: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mockup:hover {
+            transform: translateY(-10px);
+            border-color: var(--neon-purple);
+            box-shadow: 0 20px 50px rgba(188, 0, 255, 0.2);
+        }
+
+        .mockup img {
+            width: 100%;
+            height: 100%;
+            border-radius: 25px;
+            object-fit: cover;
+            background-color: #111; /* لون مؤقت لحين وضع الصور */
+        }
+
+        /* قسم الإصدارات (Versions) */
+        .versions {
+            padding: 80px 5%;
+        }
+
+        .versions-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .version-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .version-card:hover {
+            border-color: rgba(188, 0, 255, 0.5);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .version-info h3 {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .version-info .badge {
+            background: var(--neon-purple);
+            padding: 3px 10px;
+            border-radius: 10px;
             font-size: 0.8rem;
-            color: #555;
-            letter-spacing: 1px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 20px;
+            margin-right: 10px;
+            font-weight: bold;
         }
 
-        .developer-name {
+        .version-info p {
+            color: #888;
+            margin-top: 10px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--neon-purple);
+            box-shadow: none;
+            padding: 10px 25px;
+            font-size: 1rem;
+        }
+
+        .btn-outline:hover {
+            background: var(--neon-purple);
+        }
+
+        /* الفوتر والتوقيع (Footer) */
+        footer {
+            padding: 60px 20px 40px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.8);
+            border-top: 1px solid var(--glass-border);
+            margin-top: 50px;
+        }
+
+        .developer-badge {
+            display: inline-block;
+            background: rgba(188, 0, 255, 0.1);
+            border: 1px solid rgba(188, 0, 255, 0.3);
+            padding: 20px 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .developer-badge h4 {
+            color: #aaa;
+            font-weight: normal;
+            margin-bottom: 5px;
+        }
+
+        .developer-badge a {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        .developer-badge a:hover {
             color: var(--neon-purple);
+            text-shadow: 0 0 15px rgba(188, 0, 255, 0.8);
+        }
+
+        .portfolio-btn {
+            color: var(--neon-purple);
+            text-decoration: none;
             font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: 0.3s;
+        }
+
+        .portfolio-btn:hover {
+            color: white;
+        }
+
+        .copyright {
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        /* للموبايل */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .version-card { flex-direction: column; text-align: center; gap: 20px; }
+            .nav-links { display: none; } /* يفضل إخفاء الروابط في الموبايل أو عمل قائمة منسدلة */
         }
     </style>
 </head>
 <body>
+
     <div class="bg-glow"></div>
-    
-    <div class="glass-card">
-        <!-- تأكد إن اسم الصورة icon.png وموجودة في نفس الفولدر -->
-        <img src="icon.png" alt="A7 Media Logo" class="logo">
+    <div class="bg-glow bg-glow-2"></div>
+
+    <nav>
+        <a href="#" class="nav-logo">A7 Media</a>
+        <div class="nav-links">
+            <a href="#hero">الرئيسية</a>
+            <a href="#screenshots">التطبيق من الداخل</a>
+            <a href="#versions">الإصدارات</a>
+            <a href="#developer">المطور</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="hero">
+        <img src="icon.png" alt="A7 Media Logo" onerror="this.src='https://via.placeholder.com/140/111/BC00FF?text=A7'">
+        <h1>A7 Media Player</h1>
+        <p>مشغل الوسائط الأقوى والأخف على الإطلاق. استمتع بتجربة تشغيل و تحميل خالية من التقطيع، مع دعم كامل للتشغيل في الخلفية وتصميم لا مثيل له.</p>
         
-        <h1>A7 Media</h1>
-        <p>مشغل الوسائط الأقوى والأخف على الإطلاق. استمتع بتجربة صوت وفيديو لا مثيل لها.</p>
-        
-        <!-- حط اسم ملف الـ APK اللي هتطلعه هنا -->
-        <a href="https://github.com/man9000442-hub/A7-MEDIA-DOWNLOAD/releases/download/v1.0.0_on_publish/app-arm64-v8a-release.apk" class="download-btn">
-            <span>تحميل الـ APK</span>
+        <a href="#versions" class="btn">
+            <span>حمل التطبيق الآن</span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
         </a>
+    </section>
 
-        <div class="footer">
-            Designed and Developed by <br>
-            <span class="developer-name">Abdelrahman Tarek</span>
+    <section class="screenshots" id="screenshots">
+        <h2 class="section-title">نظرة من الداخل</h2>
+        <div class="gallery">
+            <div class="mockup">
+                <img src="screen1.png" alt="شاشة المشغل" onerror="this.src='https://via.placeholder.com/250x520/111/555?text=Screen+1'">
+            </div>
+            <div class="mockup">
+                <img src="screen2.png" alt="شاشة التحميلات" onerror="this.src='https://via.placeholder.com/250x520/111/555?text=Screen+2'">
+            </div>
+            <div class="mockup">
+                <img src="screen3.png" alt="شاشة الإعدادات" onerror="this.src='https://via.placeholder.com/250x520/111/555?text=Screen+3'">
+            </div>
         </div>
-    </div>
+    </section>
+
+    <section class="versions" id="versions">
+        <h2 class="section-title">إصدارات التطبيق</h2>
+        <div class="versions-container">
+            
+            <div class="version-card">
+                <div class="version-info">
+                    <h3>الإصدار v1.0.0 <span class="badge">الأحدث 🔥</span></h3>
+                    <p>النسخة المستقرة الأولى (Stable Release). تدعم التحميل الذكي، تشغيل الخلفية الموحد، وتخطي حظر يوتيوب.</p>
+                </div>
+                <a href="" class="btn">تحميل APK</a>
+            </div>
+
+            <div class="version-card">
+                <div class="version-info">
+                    <h3>الإصدار v0.9.0 <span class="badge" style="background: #555;">بيتا</span></h3>
+                    <p>نسخة اختبارية سابقة.</p>
+                </div>
+                <a href="https://github.com/man9000442-hub/A7-MEDIA-DOWNLOAD/releases/download/v1.0.0_on_publish/app-arm64-v8a-release.apk" class="btn btn-outline">تحميل APK</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="developer">
+        <div class="developer-badge">
+            <h4>تم التصميم والتطوير بواسطة مهندس البرمجيات</h4>
+            <a href="https://man9000442-hub.github.io/Eng-Abdelrahman-prot/" target="_blank">Eng. Abdelrahman Tarek</a>
+            <a href="https://man9000442-hub.github.io/Eng-Abdelrahman-prot/" target="_blank" class="portfolio-btn">
+                زيارة معرض الأعمال (Portfolio) 
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+        </div>
+        <div class="copyright">
+            &copy; 2026 جميع الحقوق محفوظة لتطبيق A7 Media
+        </div>
+    </footer>
+
 </body>
 </html>
