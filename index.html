@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>A7 Media | الموقع الرسمي</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
@@ -28,43 +28,42 @@
             overflow-x: hidden;
         }
 
-        /* تأثيرات الخلفية */
         .bg-glow {
             position: fixed;
-            width: 40vw;
-            height: 40vw;
+            width: 300px;
+            height: 300px;
             background: var(--neon-purple);
-            filter: blur(150px);
+            filter: blur(120px);
             border-radius: 50%;
             z-index: -1;
-            opacity: 0.15;
-            top: -10%;
-            left: -10%;
+            opacity: 0.2;
+            top: 0;
+            left: 0;
             animation: floatGlow 15s infinite alternate ease-in-out;
         }
+        
         .bg-glow-2 {
             top: auto;
-            bottom: -10%;
+            bottom: 0;
             left: auto;
-            right: -10%;
+            right: 0;
             animation-delay: -5s;
         }
 
         @keyframes floatGlow {
-            0% { transform: translate(0, 0); }
+            0% { transform: translate(-20px, -20px); }
             100% { transform: translate(50px, 50px); }
         }
 
-        /* شريط التنقل (Navbar) */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 20px 5%;
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(5, 5, 5, 0.8);
+            background: rgba(5, 5, 5, 0.85);
             backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--glass-border);
             z-index: 1000;
@@ -75,9 +74,6 @@
             font-weight: 900;
             color: white;
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
         .nav-links {
@@ -96,7 +92,6 @@
             color: var(--neon-purple);
         }
 
-        /* القسم الرئيسي (Hero) */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -104,12 +99,12 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 100px 20px 50px;
+            padding: 120px 20px 50px;
         }
 
         .hero img {
-            width: 140px;
-            height: 140px;
+            width: 120px;
+            height: 120px;
             margin-bottom: 20px;
             border-radius: 30px;
             box-shadow: 0 0 30px rgba(188, 0, 255, 0.3);
@@ -132,9 +127,9 @@
             line-height: 1.6;
         }
 
-        /* الأزرار النيون */
         .btn {
             display: inline-flex;
+            justify-content: center;
             align-items: center;
             gap: 10px;
             background: var(--neon-purple);
@@ -155,16 +150,15 @@
             background: var(--neon-accent);
         }
 
-        /* قسم صور التطبيق (Screenshots) */
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
             font-weight: 900;
         }
 
         .screenshots {
-            padding: 80px 5%;
+            padding: 60px 5%;
             background: rgba(255, 255, 255, 0.01);
         }
 
@@ -177,7 +171,7 @@
 
         .mockup {
             width: 250px;
-            height: 520px;
+            aspect-ratio: 9/19;
             background: var(--glass-bg);
             border: 2px solid var(--glass-border);
             border-radius: 35px;
@@ -185,13 +179,6 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
             transition: 0.3s;
             position: relative;
-            overflow: hidden;
-        }
-
-        .mockup:hover {
-            transform: translateY(-10px);
-            border-color: var(--neon-purple);
-            box-shadow: 0 20px 50px rgba(188, 0, 255, 0.2);
         }
 
         .mockup img {
@@ -199,12 +186,11 @@
             height: 100%;
             border-radius: 25px;
             object-fit: cover;
-            background-color: #111; /* لون مؤقت لحين وضع الصور */
+            background-color: #111;
         }
 
-        /* قسم الإصدارات (Versions) */
         .versions {
-            padding: 80px 5%;
+            padding: 60px 5%;
         }
 
         .versions-container {
@@ -219,28 +205,22 @@
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             border-radius: 20px;
-            padding: 30px;
+            padding: 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: 0.3s;
-        }
-
-        .version-card:hover {
-            border-color: rgba(188, 0, 255, 0.5);
-            background: rgba(255, 255, 255, 0.05);
         }
 
         .version-info h3 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: white;
             margin-bottom: 5px;
         }
 
         .version-info .badge {
             background: var(--neon-purple);
-            padding: 3px 10px;
-            border-radius: 10px;
+            padding: 4px 12px;
+            border-radius: 12px;
             font-size: 0.8rem;
             margin-right: 10px;
             font-weight: bold;
@@ -249,84 +229,77 @@
         .version-info p {
             color: #888;
             margin-top: 10px;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         .btn-outline {
             background: transparent;
             border: 2px solid var(--neon-purple);
             box-shadow: none;
-            padding: 10px 25px;
+            padding: 12px 25px;
             font-size: 1rem;
         }
 
-        .btn-outline:hover {
-            background: var(--neon-purple);
-        }
-
-        /* الفوتر والتوقيع (Footer) */
         footer {
-            padding: 60px 20px 40px;
+            padding: 50px 20px 30px;
             text-align: center;
             background: rgba(0, 0, 0, 0.8);
             border-top: 1px solid var(--glass-border);
-            margin-top: 50px;
         }
 
         .developer-badge {
-            display: inline-block;
-            background: rgba(188, 0, 255, 0.1);
-            border: 1px solid rgba(188, 0, 255, 0.3);
-            padding: 20px 40px;
+            background: rgba(188, 0, 255, 0.05);
+            border: 1px solid rgba(188, 0, 255, 0.2);
+            padding: 25px 20px;
             border-radius: 20px;
             margin-bottom: 30px;
-            backdrop-filter: blur(10px);
+            display: inline-block;
+            max-width: 100%;
         }
 
         .developer-badge h4 {
             color: #aaa;
             font-weight: normal;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
         }
 
         .developer-badge a {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 900;
             color: white;
             text-decoration: none;
             display: block;
-            margin-bottom: 10px;
-            transition: 0.3s;
-        }
-
-        .developer-badge a:hover {
-            color: var(--neon-purple);
-            text-shadow: 0 0 15px rgba(188, 0, 255, 0.8);
+            margin-bottom: 15px;
         }
 
         .portfolio-btn {
-            color: var(--neon-purple);
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-flex;
+            color: var(--neon-purple) !important;
+            font-size: 1rem !important;
+            display: inline-flex !important;
             align-items: center;
-            gap: 5px;
-            transition: 0.3s;
-        }
-
-        .portfolio-btn:hover {
-            color: white;
+            justify-content: center;
+            gap: 8px;
         }
 
         .copyright {
             color: #555;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
-        /* للموبايل */
+        /* 📱 دعم شاشات الموبايل كلياً */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .version-card { flex-direction: column; text-align: center; gap: 20px; }
-            .nav-links { display: none; } /* يفضل إخفاء الروابط في الموبايل أو عمل قائمة منسدلة */
+            .nav-links { display: none; } 
+            .nav-logo { width: 100%; text-align: center; justify-content: center; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1rem; padding: 0 10px; }
+            .btn { width: 100%; font-size: 1.1rem; padding: 15px; }
+            .gallery { flex-direction: column; align-items: center; }
+            .mockup { width: 100%; max-width: 280px; }
+            .version-card { flex-direction: column; text-align: center; gap: 20px; padding: 20px; }
+            .developer-badge { width: 100%; padding: 20px 10px; }
+            .developer-badge a { font-size: 1.3rem; }
         }
     </style>
 </head>
@@ -339,16 +312,15 @@
         <a href="#" class="nav-logo">A7 Media</a>
         <div class="nav-links">
             <a href="#hero">الرئيسية</a>
-            <a href="#screenshots">التطبيق من الداخل</a>
+            <a href="#screenshots">التطبيق</a>
             <a href="#versions">الإصدارات</a>
-            <a href="#developer">المطور</a>
         </div>
     </nav>
 
     <section class="hero" id="hero">
-        <img src="icon.png" alt="A7 Media Logo" onerror="this.src='https://via.placeholder.com/140/111/BC00FF?text=A7'">
+        <img src="icon.png" alt="A7 Media Logo" onerror="this.src='https://via.placeholder.com/120/111/BC00FF?text=A7'">
         <h1>A7 Media Player</h1>
-        <p>مشغل الوسائط الأقوى والأخف على الإطلاق. استمتع بتجربة تشغيل و تحميل خالية من التقطيع، مع دعم كامل للتشغيل في الخلفية وتصميم لا مثيل له.</p>
+        <p>مشغل الوسائط الأقوى والأخف على الإطلاق. استمتع بتجربة تشغيل وتحميل خالية من التقطيع، مع تصميم زجاجي عصري لا مثيل له.</p>
         
         <a href="#versions" class="btn">
             <span>حمل التطبيق الآن</span>
@@ -374,23 +346,20 @@
     <section class="versions" id="versions">
         <h2 class="section-title">إصدارات التطبيق</h2>
         <div class="versions-container">
-            
             <div class="version-card">
                 <div class="version-info">
-                    <h3>الإصدار v1.0.0 <span class="badge">الأحدث 🔥</span></h3>
-                    <p>النسخة المستقرة الأولى (Stable Release). تدعم التحميل الذكي، تشغيل الخلفية الموحد، وتخطي حظر يوتيوب.</p>
+                    <h3>الإصدار v1.0.1 <span class="badge">الأحدث 🔥</span></h3>
+                    <p>النسخة المستقرة. تدعم التحميل اونلابن بأداء خفيف وسريع.</p>
                 </div>
-                <a href="" class="btn">تحميل APK</a>
+                <a href="https://github.com/man9000442-hub/A7-MEDIA-DOWNLOAD/releases/download/v1.0.1_on_publish/app-arm64-v8a-release.apk" class="btn">تحميل APK</a>
             </div>
-
             <div class="version-card">
                 <div class="version-info">
-                    <h3>الإصدار v0.9.0 <span class="badge" style="background: #555;">بيتا</span></h3>
-                    <p>نسخة اختبارية سابقة.</p>
+                    <h3>الإصدار v1.0.0 <span class="badge">الاصدار السابق</span></h3>
+                    <p>النسخة المستقرة.لا تدعم التحميل اونلابن .</p>
                 </div>
-                <a href="https://github.com/man9000442-hub/A7-MEDIA-DOWNLOAD/releases/download/v1.0.0_on_publish/app-arm64-v8a-release.apk" class="btn btn-outline">تحميل APK</a>
+                <a href="https://github.com/man9000442-hub/A7-MEDIA-DOWNLOAD/releases/download/v1.0.0_on_publish/app-arm64-v8a-release.apk" class="btn">تحميل APK</a>
             </div>
-
         </div>
     </section>
 
